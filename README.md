@@ -4,6 +4,11 @@ A simple python script that downloads OSRS music tracks from [the wiki](https://
 ## Usage
 Requires at least Python 3.7 as well as `pymediawiki`, `yt_dlp`, and `taglib`.
 
+To install dependencies:
+```
+pip install pymediawiki yt_dlp pytaglib
+```
+
 To run: `python3 osrsmusic.py` will autogenerate a "tracks" subfolder and fill it with ogg files. These will have the title, artist, and album details.
 
 ## Is this legal?

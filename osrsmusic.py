@@ -14,6 +14,11 @@ print(f"Found {len(track_names)} tracks to download...")
 # download the tracks
 for track_name in track_names:
     track_name_formatted = track_name.replace("(music track)", "").strip() # removes disambiguation suffix
+    
+    # remove characters like ? from filenames which cause errors
+    illegal_chars = r"[<>:\"/\\|?*]"
+    track_name_formatted = re.sub(illegal_chars, "", track_name_formatted)
+    
     ydl_opts = {"playlist_items":"1", # this *should* download the latest version only
             "outtmpl": f"tracks/{track_name_formatted}.ogg"}
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
